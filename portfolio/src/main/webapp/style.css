@@ -1,5 +1,5 @@
 body{
-  background-color: aliceblue;  
+  background-color: rgba(187, 209, 250, 0.466);
   font-family:'Lucida Sans';
 }
 
@@ -11,16 +11,16 @@ td{
     font-size: 15px;
 }
 
-#leftcol{
+.leftcol{
     width: 15%;
 }
 
-#midcol{
+.midcol{
     width: 35%;
     padding-left: 20px;
 }
 
-#rightcol{
+.rightcol{
     width: 48%;
     text-align: center;
 }
