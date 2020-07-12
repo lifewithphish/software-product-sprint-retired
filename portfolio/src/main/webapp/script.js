@@ -12,8 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// add a function that runs the photo gallery
+//function adapted from w3schools: 
+// https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp
+//After using w3's method for displaying the photos, i replaced
+//their javascript with these functions to display the text rather
+//than opening the photo in a larger payne
+
+function showText(text){
+    document.getElementById("text").innerHTML=text;
+}
+
+function hide(){
+    document.getElementById("text").innerHTML="";
+}
+
+
+
+
+
+
 /**
  * Adds a random greeting to the page.
+ * Saving because I thought it was a cute function
  */
 function addRandomGreeting() {
   const greetings =
@@ -26,3 +47,4 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
