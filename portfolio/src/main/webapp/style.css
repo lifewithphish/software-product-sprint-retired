@@ -59,6 +59,9 @@ td{
   margin-left: 240px;
   width: 50%;
 }
+#servlet-container {
+  margin-top: 20px;
+}
 
 #greeting-container {
   margin-top: 20px;

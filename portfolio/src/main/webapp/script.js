@@ -25,3 +25,9 @@ function showText(text){
 function hide(){
     document.getElementById("text").innerHTML="";
 }
+
+async function getServletResponseUsingAsyncAwait() {
+  const response = await fetch('/data');
+  const quote = await response.text();
+  document.getElementById('servlet-container').innerText = quote;
+}
