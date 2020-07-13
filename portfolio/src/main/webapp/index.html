@@ -34,7 +34,7 @@
       <button onclick="getServletResponseUsingAsyncAwait()">Fetch Servlet Info!</button>
       <div id="servlet-container"></div>
     </div>
-
+    
 <!-- I originally had this as div row/cols but I was struggling to get the 
     level of customication I was looking for, so I redid it as a table -->
     <table>
@@ -105,9 +105,8 @@
                 old quarries to underwater canyons. My favorite dive was in the kelp forests
                 of La Jolla, California, where I was met by a colony of playful seals!
             </td>
-            <td class="rightcol" rowspan="2">
-                <img src="/images/siteimages/trees.jpg" style="width: 100%;
-                 padding: 10px;">
+            <td class="rightcol">
+                <img src="/images/siteimages/trees.jpg" style="padding: 10px; height: 200px;">
             </td>
         </tr>
         <tr>
@@ -120,9 +119,20 @@
                 race sprawled over 42 miles and took me up nearly two miles of elevation and
                 through more than 60 obstacles. It took over twelve hours to finish. 
             </td>
+<!-- Step 4 comment handling -->
+            <td class = "rightcol">
+                <form action="/data" method="POST">
+                    <p>I would love your feedback! Feel free to enter it below:</p>
+                        <textarea name="text-input">Enter comments here!</textarea>
+                    <br/>
+                    <p>Would you like to customize your input?</p>
+                    <input type="checkbox" name="upper-case" value="true"> Upper-case
+                    <br/>
+                    <input type="submit" />
+                </form>
+            </td>       
         </tr>
     </table>
-
     <!-- This is the row/col classes that run the gallery-->
 
     <div class="galrow">
