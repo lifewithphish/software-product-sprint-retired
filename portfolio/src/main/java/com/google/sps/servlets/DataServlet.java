@@ -15,18 +15,53 @@
 package com.google.sps.servlets;
 
 import java.io.IOException;
+import com.google.gson.Gson;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.*;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
+
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+    ArrayList<String> messages = new ArrayList<String>();
+		
+  private String convertToJsonUsingGson(ArrayList list) {
+    Gson gson = new Gson();
+    String json = gson.toJson(list);
+    return json;
+  }//convertToJsonUsingGson
 
-  @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello world!</h1>");
-  }
-}
+//Part 4 of the tutorial
+   @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String text = getParameter(request, "text-input", "");
+    messages.add(text);
+    boolean upperCase = Boolean.parseBoolean(getParameter(request, "upper-case", "false"));
+    boolean sort = Boolean.parseBoolean(getParameter(request, "sort", "false"));
+
+    // Convert the text to upper case.
+    if (upperCase) {
+      text = text.toUpperCase();
+    }
+
+    response.setContentType("application/json;");
+    response.getWriter().println(convertToJsonUsingGson(messages));
+
+  }//doPost
+
+  /**
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }//getParameter
+}//class

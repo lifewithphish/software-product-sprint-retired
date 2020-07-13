@@ -12,17 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+/*This function adds a caption to the photo when you mouse over it
+* I adapted this function from w3schools: 
+* https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp
+* I referenced their div col/row method for laying out the photos
+* and then added my own JavaScript */
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+function showText(text){
+    document.getElementById("text").innerHTML=text;
+}
 
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+function hide(){
+    document.getElementById("text").innerHTML="";
+}
+
+async function getServletResponseUsingAsyncAwait() {
+  const response = await fetch('/data');
+  const quote = await response.text();
+  document.getElementById('servlet-container').innerText = quote;
 }
